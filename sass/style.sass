@@ -1,0 +1,398 @@
+$accent: #4CB0AE
+$navBgColor: #242b2e
+$navTextColor: #6b7072
+$navLogoBgColor: #fff
+$logoColor1: #5F6368
+$logoColor2: $accent
+$navLinkColor: #fff
+$font: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana, sans-serif
+$navLinkGradientTop: #2D3336
+$navLinkGradientBot: $navLinkGradientTop - #050404
+$navLinkHoverGradientTop: $accent
+$navLinkHoverGradientBot: $accent - #081B16
+$filterTittleColor: $accent
+$filterLinkColor: #616669
+$filterLinkHoverColor: $accent
+$socialColor: #616669 
+$socialHoverColor: $accent
+$copColor: #616669
+$copSpanColor: $accent
+$workItemHoverColor: $accent
+$workItemArrowColor: #fff
+$infoBgColor: $accent
+$infoColor: #fff
+$infoContentBgColor: #242b2e
+$infoContentColor: #fff
+$singleWorkBordersColor: #c3c3c3
+$singleWorkTextColor: #242b2e
+
+
+@mixin gradient($colorTop, $colorBot)
+    background: $colorTop
+    opacity: 1
+    background: -moz-linear-gradient(top, $colorTop 0%, $colorBot 100%)
+    background: -webkit-linear-gradient(top, $colorTop 0%,$colorBot 100%)
+    background: linear-gradient(to bottom, $colorTop 0%,$colorBot 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$colorTop, endColorstr=$colorBot,GradientType=0 )
+
+body
+    background-color: #c3c3c3
+    font-family: $font
+
+header
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 50
+    height: 100vh
+    width: 15.62vw
+    background-color: $navBgColor
+    color: $navTextColor
+    box-shadow: 10px 0 15px 0 rgba(#242b2e, .5)
+    display: flex
+    flex-direction: column
+    flex-flow: column nowrap
+    #logo
+        width: 100%
+        height: 11.57vh
+        background-color: $navLogoBgColor
+        .st0
+            fill: $logoColor1
+        .st1
+            fill: $logoColor2
+        svg
+            width: 9vw
+    nav
+        list-style: none
+        li
+            a
+                color: $navLinkColor
+                text-transform: uppercase
+                font-size: 0.93vmax
+                line-height: 1.66vmax
+                font-family: $font
+                height: 3.22vmax
+                width: 100%
+                display: flex
+                flex-flow: row nowrap
+                justify-content: flex-end
+                align-items: center
+                @include gradient($navLinkGradientTop, $navLinkGradientBot)
+                padding-right: 1.3vmax
+                transition: .25s
+                &:hover
+                    @include gradient($navLinkHoverGradientTop, $navLinkHoverGradientBot)
+    #filter
+        font-family: $font
+        #filer-tittle
+            color: $filterTittleColor
+            fill: $filterTittleColor
+            font-size: 0.98vmax
+            padding: 1.25vmax
+            svg
+                color: $filterTittleColor
+                width: 0.9vmax
+                height: 0.9vmax
+                margin-left: 0.62vmax
+        ul
+            width: 100%
+            text-align: right
+            li
+                a
+                    font-size: 0.67vmax
+                    line-height: 1.25vmax
+                    padding: 0.41vmax 1.25vmax
+                    color: $filterLinkColor
+                    transition: .2s
+                    &:hover
+                        color: $filterLinkHoverColor
+                
+    #socials
+        padding: 1.25vmax
+        margin-top: 1.25vmax
+        border-top: 1px solid #1F2528
+        width: 100%
+        a
+            fill: $socialColor
+            transition: .2s
+            margin-left: 0.52vmax
+            svg
+                width: 1.25vmax
+                height: 1.25vmax
+            &:hover
+                fill: $socialHoverColor
+    #cop
+        color: $copColor
+        text-align: right
+        width: 100%
+        font-size: 0.62vmax
+        padding-right: 1.25vmax
+        font-family: $font
+        span
+            color: $copSpanColor
+
+#info
+    background-color: $infoBgColor
+    fill: $infoColor
+    position: fixed
+    top: 0
+    right: 0
+    width: 4.68vw
+    height: 4.68vw
+    z-index: 5
+    padding: .78vw
+    cursor: pointer
+    opacity: .8
+    svg
+        width: 3vw
+    &:hover
+        opacity: 1
+
+.info-content
+    position: fixed
+    top: 4.68vw
+    right: 0
+    z-index: 5
+    list-style: none
+    font-family: $font
+    color: $infoContentColor
+    background-color: $infoContentBgColor
+    opacity: .8
+    padding: 0.5vw 3vw 0.5vw 0.5vw
+    transform: translateX(100%)
+    transition: all .2s
+    li
+        padding: 0.5vw
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+        font-size: 0.88vmax
+    svg
+        fill: $infoContentColor
+        height: 0.88vw
+        width: 0.88vw
+        margin-right: 0.5vw
+
+.info-open
+    transform: translateX(0%)
+    transition: all .2s
+
+
+.nav-active
+    @include gradient($navLinkHoverGradientTop, $navLinkHoverGradientBot)
+
+.filter-active
+    color: $filterLinkHoverColor
+
+    
+//HOME
+main
+    width: 100%
+    min-height: 100vh
+    padding-left: 15.62vw
+    font-family: $font
+    .work-list
+        .work-item
+            height: 16.19vw
+            max-width: 21.09vw
+            width: 25%
+            position: relative
+            overflow: hidden
+            img
+                width: calc(100% + 5vw) 
+                height: auto
+                position: absolute
+                z-index: 1
+            a
+                position: absolute
+                z-index: 2
+                top: 0
+                left: 0
+                display: flex
+                width: 100%
+                height: inherit
+                background-color: rgba($workItemHoverColor, 0.9)
+                color: #fff
+                flex-flow: column nowrap
+                justify-content: center
+                align-items: center
+                font-family: $font
+                opacity: 0
+                transition: .2s
+                &:hover
+                    opacity: 1
+            .arrow
+                width: 3vw
+                height: 3vw
+                fill: $workItemArrowColor
+            h2
+                font-size: 1.25vw
+                font-weight: 400
+                margin-bottom: 0.87vw
+            h3
+                font-size: 0.62vw
+                font-weight: 400
+                &:after
+                    content: ''
+                    width: 50%
+                    height: 1px
+                    margin: 1vw auto
+                    display: block
+                    background-color: $workItemArrowColor
+
+.work-wrap
+    color: $singleWorkTextColor
+    padding: 1.56vw
+    margin: 1.56vw
+    background: #fff
+    .project-info
+        .left-info, .right-info
+            width: 48%
+        .left-info
+            .img
+                width: 100%
+                overflow: hidden
+                height: 29.16vw
+                img
+                    width: 100%
+                    height: auto
+            .description
+                margin-top: 1.3vw
+                padding-bottom: 1.6vw
+                border-bottom: 1px solid $singleWorkBordersColor
+                font-size: 0.93vw
+                line-height: 1.56vw
+                p
+                    font-size: 0.93vw
+                h1
+                    font-size: 1.25vw
+                    line-height: 1.35vw
+                    margin-bottom: 1vw
+                    font-weight: 500
+        .right-info
+            .pr-info
+                .pr-info-summary
+                    margin-bottom: 1.8vw
+                    ul
+                        li
+                            display: flex
+                            align-items: center
+                            padding: 0.78vw 0
+                            border-bottom: 1px solid $singleWorkBordersColor
+                            p
+                                font-size: 0.73vw
+                                padding: 0.78vw
+                            svg
+                                height: 1.56vw
+                                fill: $accent
+                .pr-info-tags
+                    margin-bottom: 1.8vw
+                    ul
+                        padding: 1.3vw 0
+                        li
+                            display: inline
+                            a
+                                font-size: 0.68vw
+                                padding: 0.885vw
+                                margin-right: 0.52vw
+                                border: 1px solid $singleWorkBordersColor
+                                border-radius: 10px
+                                color: #000
+                            
+                .pr-info-gallery
+                    margin-bottom: 1.8vw
+                    ul
+                        li
+                            display: inline
+                            margin: 0 0.52vw 0.52vw 0
+                            img
+                                width: 4.06vw
+                                height: 4.06vw
+                .pr-info-features
+                    margin-bottom: 1.8vw
+                    ul
+                        li
+                            margin-bottom: 1.04vw
+                            font-size: 0.73vw
+                            svg
+                                height: 0.52vw
+                                fill: $singleWorkTextColor
+    .related-projects
+        ul
+            padding: 0.52vw 0
+            li
+                display: inline
+                a
+                    img
+                        width: 12.5vw
+                        height: 9.48vw
+
+.block-tittle
+    font-size: 1.25vw
+    margin-bottom: 0.78vw
+
+.about-wrap
+    color: $singleWorkTextColor
+    padding: 1.56vw
+    margin: 1.56vw
+    background: #fff
+    .about
+        .left-about, .right-about
+            width: 48%
+        .left-about
+            .img
+                width: 100%
+                overflow: hidden
+                height: 15.73vw
+                img
+                    width: 100%
+                    height: auto
+            .description, .about-staff
+                margin-top: 1.3vw
+                padding-bottom: 1.6vw
+                border-bottom: 1px solid $singleWorkBordersColor
+                font-size: 0.93vw
+                line-height: 1.56vw
+                p
+                    font-size: 0.93vw
+                h1
+                    font-size: 1.25vw
+                    line-height: 1.35vw
+                    margin-bottom: 1vw
+                    font-weight: 500
+                .imgs
+                    .staff-item
+                        position: relative
+                        overflow: hidden
+                        width: 11.82vw
+                        height: 9.37vw
+                        margin: 0 0.52vw 0.52vw 0
+                        &:nth-child(3n)
+                            margin: 0 0 0.52vw 0
+                        a
+                            position: absolute
+                            z-index: 1
+                            top: 0
+                            left: 0
+                            display: flex
+                            width: inherit
+                            height: inherit
+                            background-color: rgba($workItemHoverColor, 0.9)
+                            color: #fff
+                            flex-flow: column nowrap
+                            justify-content: center
+                            align-items: center
+                            font-family: $font
+                            opacity: 0
+                            transition: .2s
+                            &:hover
+                                opacity: 1
+                        img
+                            width: inherit
+                            height: inherit
+                            position: absolute
+                            top: 0
+                            z-index: 0
+
+                            
+
