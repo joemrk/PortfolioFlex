@@ -1,10 +1,11 @@
 $accent: #4CB0AE
+$white: #fff
 $navBgColor: #242b2e
 $navTextColor: #6b7072
-$navLogoBgColor: #fff
+$navLogoBgColor: $white
 $logoColor1: #5F6368
 $logoColor2: $accent
-$navLinkColor: #fff
+$navLinkColor: $white
 $font: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana, sans-serif
 $navLinkGradientTop: #2D3336
 $navLinkGradientBot: $navLinkGradientTop - #050404
@@ -18,14 +19,15 @@ $socialHoverColor: $accent
 $copColor: #616669
 $copSpanColor: $accent
 $workItemHoverColor: $accent
-$workItemArrowColor: #fff
+$workItemArrowColor: $white
 $infoBgColor: $accent
-$infoColor: #fff
+$infoColor: $white
 $infoContentBgColor: #242b2e
-$infoContentColor: #fff
+$infoContentColor: $white
 $singleWorkBordersColor: #c3c3c3
 $singleWorkTextColor: #242b2e
-
+$aboutSkillProgresBg: $singleWorkBordersColor
+$aboutTestimonialTittleBg: $accent
 
 @mixin gradient($colorTop, $colorBot)
     background: $colorTop
@@ -393,6 +395,62 @@ main
                             position: absolute
                             top: 0
                             z-index: 0
+        .right-about
+            .our-skills
+                ul
+                    margin-bottom: 1.3vw
+                    li
+                        margin-bottom: 0.52vw
+                        .skill-tittle
+                            display: flex
+                            justify-content: space-between
+                            align-items: center
+                            font-size: 0.78vw
+                            padding: 0.52vw 0
+                            .skill-percent
+                                color: #000
+                                font-weight: bold
+                        .skill-progress
+                            width: 100%
+                            height: 1.82vw
+                            border: 1px solid $aboutSkillProgresBg
+                            .progress-bar
+                                background-color: $singleWorkBordersColor
+                                height: inherit
+            .testimonials
+                margin-bottom: 1.3vw
+                .testimonial-tittle
+                    display: flex
+                    align-items: center
+                    .testimonial-name
+                        width: 100%
+                        height: 4.16vw
+                        background-color: $aboutTestimonialTittleBg
+                        color: #fff
+                        font-size: 0.78vw
+                        display: flex
+                        align-items: center
+                        padding-left: 1.14vw
+                    img
+                        width: 4.16vw
+                        height: 4.16vw
+                .testimonial-text
+                    padding: 1.56vw
+                    border: 1px solid $singleWorkBordersColor
+                    border-top: 0
+                    font-size: 0.93vw
+            .services
+                ul
+                    li
+                        padding: 0.52vw 0
+                        p
+                            font-size: 0.73vw
+                            display: flex
+                            align-items: center
+                            svg
+                                width: 0.31vw
+                                margin-right: 0.52vw
+
 
                             
 
