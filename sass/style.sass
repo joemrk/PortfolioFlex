@@ -329,9 +329,6 @@ main
                         width: 12.5vw
                         height: 9.48vw
 
-.block-tittle
-    font-size: 1.25vw
-    margin-bottom: 0.78vw
 
 .about-wrap
     color: $singleWorkTextColor
@@ -451,6 +448,72 @@ main
                                 width: 0.31vw
                                 margin-right: 0.52vw
 
+.contact-wrap
+    height: 100vh
+    background: url('../img/contactBg.png') top center no-repeat / cover
+    padding: 1.3vw
+    .contact-block
+        background-color: #fff
+        // height: 24.48vw
+        width: 40.62vw
+        padding: 1.3vw
+        p
+            font-size: 0.93vw
+            line-height: 1.56vw
+            padding-bottom: 1.56vw
+            border-bottom: 1px solid $singleWorkBordersColor
+            margin-bottom: 0.78vw
+        .contact-form
+            .form-block
+                display: flex
+                justify-content: space-between
+                .form-left, .form-right
+                    width: 18.75vw
+                    display: flex
+                    flex-flow: column
+                    .form-item
+                        display: flex
+                        align-items: center
+                        height: 3.12vw
+                        border: 1px solid $singleWorkBordersColor
+                        margin-bottom: 0.52vw
+                        svg
+                            // width: 3.12vw
+                            padding: 0.78vw
+                            width: 3.12vw
+                            border-right: 1px solid $singleWorkBordersColor
+                            fill: $accent
+                        input
+                            font-size: 0.73vw
+                            padding: 0.78vw
+                            width: 15vw
+                            border: none
+                            background-color: $white
+                .form-right
+                    input
+                        padding: 0.78vw
+                        border: none
+                        background-color: $white
+                        margin-top: 0.52vw
+                        height: 3.12vw
+                        background: $accent
+                        text-transform: uppercase
+                        color: $white
+                        transition: .25s
+                        font-size: 0.73vw
+                        &:hover
+                            border: 1px solid $accent
+                            background-color: $white
+                            color: $accent
+                    textarea
+                        height: 6.8vw
+                        width: 18.7vw
+                        resize: none
+                        font-family: $font
+                        font-size: 0.73vw
+                        border: 1px solid $singleWorkBordersColor                        
 
-                            
 
+.block-tittle
+    font-size: 1.25vw
+    margin-bottom: 0.78vw
